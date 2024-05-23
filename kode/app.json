@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "kode",
+    "slug": "kode",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.gitdemon.kode"
+    }
+  }
+}
