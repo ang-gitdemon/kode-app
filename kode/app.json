@@ -1,13 +1,19 @@
 {
   "expo": {
     "name": "kode",
-    "slug": "kode",
+    "slug": "kode-app",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "bundleIdentifier": "com.gitdemon.kode"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b9b2fe25-3fe6-4ff6-8dee-7d55eccf1b68"
+      }
+    },
+    "owner": "gitdemon"
   }
 }
