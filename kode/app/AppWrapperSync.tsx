@@ -15,7 +15,7 @@ export const AppWrapperSync: React.FC<{
 }> = ({appId}) => {
   // If we are logged in, add the sync configuration the the RealmProvider and render the app
   return (
-    <SafeAreaView style={styles.screen}>
+    <SafeAreaView className='bg-white'>
       <AppProvider id={appId}>
         <UserProvider fallback={<LoginScreen />}>
           <RealmProvider
