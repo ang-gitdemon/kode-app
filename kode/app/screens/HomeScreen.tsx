@@ -23,7 +23,7 @@ const HomeScreen = ({navigation}) => {
 	return(
 		<>
 			<View>
-				<Text>{`${renderTime(parseInt(currentTime))} ${user?.profile.email}`}</Text>
+				<Text>{`${renderTime(parseInt(currentTime))}, ${user?.profile.email}`}</Text>
 			</View>
 		</>
 	);
