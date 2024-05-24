@@ -10,17 +10,10 @@ import {schemas} from './models';
 export const AppWrapperNonSync = () => {
   // If sync is disabled, setup the app without any sync functionality and return early
   return (
-    <SafeAreaView style={styles.screen}>
+    <SafeAreaView style={{flex: 1}}>
       <RealmProvider schema={schemas}>
         <AppNonSync />
       </RealmProvider>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: colors.darkBlue,
-  },
-});
