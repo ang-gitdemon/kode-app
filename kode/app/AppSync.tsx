@@ -36,11 +36,10 @@ export const AppSync: React.FC = () => {
 
 	return (
 		<>
-			
-			<Pressable onPress={logOut}>
-				<Text>{`Logout ${user?.profile.email}`}</Text>
-			</Pressable>
 			<BottomNavigation />
+			{/* <Pressable onPress={logOut}>
+				<Text>{`Logout ${user?.profile.email}`}</Text>
+			</Pressable> */}
 			{/* <TaskManager
 				tasks={tasks}
 				userId={user?.id}

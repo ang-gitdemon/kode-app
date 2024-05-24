@@ -6,6 +6,7 @@ import ExploreScreen from '../screens/ExploreScreen';
 import RecipeBookScreen from '../screens/RecipeBookScreen';
 import ConnectScreen from '../screens/ConnectScreen';
 import { Text, View } from 'react-native';
+import { LogoutButton } from '../components/LogoutButton';
 
 export const BottomNavigation: React.FC = () => {
 
@@ -14,7 +15,19 @@ export const BottomNavigation: React.FC = () => {
     return(
         <NavigationContainer>
             <Tabs.Navigator
-                initialRouteName='Today'>
+                initialRouteName='Today'
+                screenOptions={({ navigation, route }) => ({
+                    headerTitle:  (props) => {
+                        let screenTitle = props.children;
+                        screenTitle = screenTitle === 'Browse' ? 'ABC App' : screenTitle;
+                        return (
+                            <Text>{screenTitle}</Text>
+                        );   
+                    },  
+                    headerRight: () => (
+                        <LogoutButton />
+                    ),
+                })}>
                 <Tabs.Screen name="Today" component={ HomeScreen } />
                 <Tabs.Screen name="Explore" component={ ExploreScreen } />
                 <Tabs.Screen name="RecipeBook" component={ RecipeBookScreen } />
