@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import {useUser} from '@realm/react';
 
 const HomeScreen = ({navigation}) => {
+	const user = useUser();
 	const currentTime = new Date().toLocaleTimeString("en-US", { hour12: false, hour: "2-digit", });
 
     const renderTime = (getCurrentTime:number) => {
@@ -21,7 +23,7 @@ const HomeScreen = ({navigation}) => {
 	return(
 		<>
 			<View>
-				<Text>{`${renderTime(parseInt(currentTime))} Angel!`}</Text>
+				<Text>{`${renderTime(parseInt(currentTime))} ${user?.profile.email}`}</Text>
 			</View>
 		</>
 	);
