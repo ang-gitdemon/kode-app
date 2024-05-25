@@ -14,6 +14,9 @@
         "projectId": "b9b2fe25-3fe6-4ff6-8dee-7d55eccf1b68"
       }
     },
-    "owner": "gitdemon"
+    "owner": "gitdemon",
+    "android": {
+      "package": "com.gitdemon.kode"
+    }
   }
 }

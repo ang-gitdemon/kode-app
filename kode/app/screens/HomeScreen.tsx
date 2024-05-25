@@ -18,7 +18,7 @@ const HomeScreen = ({navigation}) => {
             salut = 'Hi';
         }
         return salut;
-    }    
+    }
 
 	return(
 		<>
