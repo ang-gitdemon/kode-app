@@ -9,3 +9,9 @@ If you close your Expo dev-client and want to restart it without waiting for the
 First, install eas by running `npm install -g eas-cli`
 Login: `eas login`
 Build iOS: `eas build --platform ios`
+
+
+## TestFlight
+
+Run ios Prod build: `eas build --platform ios`
+Submit app: `eas submit -p ios`
