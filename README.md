@@ -12,6 +12,7 @@ Build iOS: `eas build --platform ios`
 
 
 ## TestFlight
-
+Download TestFlight to physical app.
 Run ios Prod build: `eas build --platform ios`
-Submit app: `eas submit -p ios`
+Upload .ipa file to Transporter app
+<!-- Submit app: `eas submit -p ios` -->
