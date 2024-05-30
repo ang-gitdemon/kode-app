@@ -8,7 +8,7 @@ ENV['RCT_NEW_ARCH_ENABLED'] = podfile_properties['newArchEnabled'] == 'true' ? '
 ENV['EX_DEV_CLIENT_NETWORK_INSPECTOR'] = podfile_properties['EX_DEV_CLIENT_NETWORK_INSPECTOR']
 
 # platform :ios, '14.0'
-platform :ios, podfile_properties['ios.deploymentTarget'] || '13.0'
+platform :ios, podfile_properties['ios.deploymentTarget'] || '14.0'
 install! 'cocoapods',
   :deterministic_uuids => false
 
@@ -65,7 +65,7 @@ target 'kode' do
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
-    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    # removed/ __apply_Xcode_12_5_M1_post_install_workaround(installer)
 
     # This is necessary for Xcode 14, because it signs resource bundles by default
     # when building for devices.
