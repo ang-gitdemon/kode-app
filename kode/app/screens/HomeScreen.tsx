@@ -24,6 +24,8 @@ const HomeScreen = ({navigation}) => {
 		<>
 			<View>
 				<Text>{`${renderTime(parseInt(currentTime))} ${user?.profile.email}`}</Text>
+                <Text style={{ fontFamily: 'Kanit_400Regular' }}>Kanit 400 Regular</Text>
+                <Text className='font-kanit_400'>Kanit 400 Regular</Text>
 			</View>
 		</>
 	);

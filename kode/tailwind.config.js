@@ -22,7 +22,12 @@ module.exports = {
 			'grayDarkest': '#101010',
 			'black': '#000000',
 		},
-		extend: {},
+		extend: {
+			fontFamily: {
+				kanit_400: ['Kanit_400Regular'],
+				kanit_500: ['Kanit_500Medium'],
+			},
+		},
 	},
 	plugins: [],
 }

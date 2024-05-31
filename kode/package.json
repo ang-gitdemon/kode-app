@@ -7,12 +7,16 @@
     "ios": "expo run:ios"
   },
   "dependencies": {
+    "@expo-google-fonts/kanit": "^0.2.3",
+    "@expo-google-fonts/rajdhani": "^0.2.3",
+    "@expo-google-fonts/work-sans": "^0.2.3",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@realm/react": "^0.6.0",
     "expo": "^49.0.8",
     "expo-dev-client": "~2.4.8",
+    "expo-font": "~11.4.0",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
     "nativewind": "^2.0.11",

@@ -10,10 +10,32 @@ import {AppSync} from './AppSync';
 import {RealmProvider} from '@realm/react';
 import {OpenRealmBehaviorType, OpenRealmTimeOutBehavior} from 'realm';
 
+import { NativeWindStyleSheet } from 'nativewind'
+import { useFonts, Rajdhani_700Bold } from "@expo-google-fonts/rajdhani";
+import { Kanit_400Regular, Kanit_500Medium } from "@expo-google-fonts/kanit";
+import { WorkSans_400Regular, WorkSans_600SemiBold, WorkSans_700Bold } from "@expo-google-fonts/work-sans";
+
+// For Web platform
+NativeWindStyleSheet.setOutput({
+  default: 'native',
+})
+
 export const AppWrapperSync: React.FC<{
   appId: string;
 }> = ({appId}) => {
   // If we are logged in, add the sync configuration the the RealmProvider and render the app
+  const [fontsLoaded] = useFonts({
+		Kanit_400Regular,
+		Kanit_500Medium,
+		Rajdhani_700Bold,
+		WorkSans_400Regular,
+		WorkSans_600SemiBold,
+		WorkSans_700Bold,
+	});
+	if (!fontsLoaded) {
+		console.log('loading');
+	}
+
   return (
     <SafeAreaView className='bg-white' style={{flex:1}}>
       <AppProvider id={appId}>
