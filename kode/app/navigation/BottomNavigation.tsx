@@ -7,14 +7,16 @@ import RecipeBookScreen from '../screens/RecipeBookScreen';
 import ConnectScreen from '../screens/ConnectScreen';
 import { Text, View } from 'react-native';
 import { LogoutButton } from '../components/LogoutButton';
+import Icon from '../components/Icon';
+import colors from '../ui/colors';
 
 export const BottomNavigation: React.FC = () => {
 
-    const Tabs = createBottomTabNavigator();
+    const BottomTabs = createBottomTabNavigator();
 
     return(
         <NavigationContainer>
-            <Tabs.Navigator
+            <BottomTabs.Navigator
                 initialRouteName='Today'
                 screenOptions={({ navigation, route }) => ({
                     headerTitle:  (props) => {
@@ -27,12 +29,45 @@ export const BottomNavigation: React.FC = () => {
                     headerRight: () => (
                         <LogoutButton />
                     ),
+                    tabBarActiveTintColor: colors.white,
+                    tabBarInactiveTintColor: colors.whiteOffset,
+                    tabBarStyle: {
+                        backgroundColor: colors.primaryDarker
+                    }
                 })}>
-                <Tabs.Screen name="Today" component={ HomeScreen } />
-                <Tabs.Screen name="Explore" component={ ExploreScreen } />
-                <Tabs.Screen name="RecipeBook" component={ RecipeBookScreen } />
-                <Tabs.Screen name="Connect" component={ ConnectScreen } />
-            </Tabs.Navigator>
+                <BottomTabs.Screen
+                    name="Today"
+                    component={ HomeScreen }
+                    options={{
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'browse'} />),
+                        title: 'Browse',
+                    }}
+                />
+                <BottomTabs.Screen
+                    name="Explore"
+                    component={ ExploreScreen }
+                    options={{
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'explore'} />),
+                        title: 'Explore',
+                    }}
+                />
+                <BottomTabs.Screen
+                    name="RecipeBook"
+                    component={ RecipeBookScreen }
+                    options={{
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'recipeBook'} />),
+                        title: 'Recipe Book',
+                    }}
+                />
+                <BottomTabs.Screen
+                    name="Connect"
+                    component={ ConnectScreen }
+                    options={{
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'connect'} size={33} />),
+                        title: 'Connect',
+                    }}
+                />
+            </BottomTabs.Navigator>
         </NavigationContainer>
     )
 }

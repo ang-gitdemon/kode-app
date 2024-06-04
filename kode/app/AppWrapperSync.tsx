@@ -60,11 +60,4 @@ export const AppWrapperSync: React.FC<{
   );
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: colors.darkBlue,
-  },
-});
-
 export default AppWrapperSync;
