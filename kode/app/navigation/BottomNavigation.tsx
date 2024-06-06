@@ -39,15 +39,15 @@ export const BottomNavigation: React.FC = () => {
                     name="Today"
                     component={ HomeScreen }
                     options={{
-                        tabBarIcon: ({ color, focused }) => (<Icon name={'browse'} />),
-                        title: 'Browse',
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'home'} active={focused} />),
+                        title: 'Today',
                     }}
                 />
                 <BottomTabs.Screen
                     name="Explore"
                     component={ ExploreScreen }
                     options={{
-                        tabBarIcon: ({ color, focused }) => (<Icon name={'explore'} />),
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'explore'} active={focused} />),
                         title: 'Explore',
                     }}
                 />
@@ -55,7 +55,7 @@ export const BottomNavigation: React.FC = () => {
                     name="RecipeBook"
                     component={ RecipeBookScreen }
                     options={{
-                        tabBarIcon: ({ color, focused }) => (<Icon name={'recipeBook'} />),
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'bookmark'} active={focused} />),
                         title: 'Recipe Book',
                     }}
                 />
@@ -63,7 +63,7 @@ export const BottomNavigation: React.FC = () => {
                     name="Connect"
                     component={ ConnectScreen }
                     options={{
-                        tabBarIcon: ({ color, focused }) => (<Icon name={'connect'} size={33} />),
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'connect'} active={focused} />),
                         title: 'Connect',
                     }}
                 />

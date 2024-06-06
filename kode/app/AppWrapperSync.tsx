@@ -37,7 +37,7 @@ export const AppWrapperSync: React.FC<{
 	}
 
   return (
-    <SafeAreaView className='bg-white' style={{flex:1}}>
+    // <SafeAreaView className='bg-white' style={{flex:1}}>
       <AppProvider id={appId}>
         <UserProvider fallback={<LoginScreen />}>
           <RealmProvider
@@ -56,7 +56,7 @@ export const AppWrapperSync: React.FC<{
           </RealmProvider>
         </UserProvider>
       </AppProvider>
-    </SafeAreaView>
+    // </SafeAreaView>
   );
 };
 
