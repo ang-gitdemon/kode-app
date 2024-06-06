@@ -3,6 +3,7 @@
     "name": "kode",
     "slug": "kode-app",
     "version": "1.0.1",
+    "icon": "/assets/app-icon@1024.png",
     "assetBundlePatterns": [
       "**/*"
     ],
