@@ -2,12 +2,12 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import ScrollNavigation from '../navigation/ScrollNavigation';
 
-const ExploreScreen = ({navigation}) => {
+const MealPlannerScreen = ({navigation}) => {
 	return(
 		<>
 			<View style={{flex: 1}}>
 				<View style={{flex: 1}}>
-					<Text>Explore Screen</Text>
+					<Text>Meal Planner Screen</Text>
 				</View>
 				<ScrollNavigation />
 			</View>
@@ -15,4 +15,4 @@ const ExploreScreen = ({navigation}) => {
 	);
 };
 
-export default ExploreScreen;
+export default MealPlannerScreen;
