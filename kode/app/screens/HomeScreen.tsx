@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import {useUser} from '@realm/react';
+import ScrollNavigation from '../navigation/ScrollNavigation';
 
 const HomeScreen = ({navigation}) => {
 	const user = useUser();
@@ -22,10 +23,13 @@ const HomeScreen = ({navigation}) => {
 
 	return(
 		<>
-			<View>
-				<Text>{`${renderTime(parseInt(currentTime))} ${user?.profile.email}`}</Text>
-                <Text style={{ fontFamily: 'Kanit_400Regular' }}>Kanit 400 Regular</Text>
-                <Text className='font-kanit_400'>Kanit 400 Regular</Text>
+			<View style={{flex: 1}}>
+				<View style={{flex: 1}}>
+                    <Text>{`${renderTime(parseInt(currentTime))} ${user?.profile.email}`}</Text>
+                    <Text style={{ fontFamily: 'Kanit_400Regular' }}>Kanit 400 Regular</Text>
+                    <Text className='font-kanit_400'>Kanit 400 Regular</Text>
+                </View>
+                <ScrollNavigation />
 			</View>
 		</>
 	);

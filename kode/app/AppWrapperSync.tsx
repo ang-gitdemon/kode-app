@@ -12,7 +12,7 @@ import {OpenRealmBehaviorType, OpenRealmTimeOutBehavior} from 'realm';
 
 import { NativeWindStyleSheet } from 'nativewind'
 import { useFonts, Rajdhani_700Bold } from "@expo-google-fonts/rajdhani";
-import { Kanit_400Regular, Kanit_500Medium } from "@expo-google-fonts/kanit";
+import { Kanit_400Regular, Kanit_500Medium, Kanit_600SemiBold, Kanit_700Bold} from "@expo-google-fonts/kanit";
 import { WorkSans_400Regular, WorkSans_600SemiBold, WorkSans_700Bold } from "@expo-google-fonts/work-sans";
 
 // For Web platform
@@ -27,6 +27,8 @@ export const AppWrapperSync: React.FC<{
   const [fontsLoaded] = useFonts({
 		Kanit_400Regular,
 		Kanit_500Medium,
+    Kanit_600SemiBold,
+    Kanit_700Bold,
 		Rajdhani_700Bold,
 		WorkSans_400Regular,
 		WorkSans_600SemiBold,

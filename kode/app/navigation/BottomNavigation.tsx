@@ -31,6 +31,9 @@ export const BottomNavigation: React.FC = () => {
                     ),
                     tabBarActiveTintColor: colors.white,
                     tabBarInactiveTintColor: colors.whiteOffset,
+                    tabBarLabelStyle: {
+                        fontFamily: 'Kanit_600SemiBold'
+                    },
                     tabBarStyle: {
                         backgroundColor: colors.primaryDarker
                     }
