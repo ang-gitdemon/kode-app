@@ -101,10 +101,13 @@ export const BottomNavigation: React.FC = () => {
                     tabBarActiveTintColor: colors.white,
                     tabBarInactiveTintColor: colors.whiteOffset,
                     tabBarLabelStyle: {
-                        fontFamily: 'Kanit_600SemiBold'
+                        fontFamily: 'Kanit_600SemiBold',
+                        fontSize: 12
                     },
                     tabBarStyle: {
-                        backgroundColor: colors.primaryDarker
+                        backgroundColor: colors.primaryDarker,
+                        paddingVertical: 10,
+                        minHeight: 80,
                     }
                 })}>
                 <BottomTabs.Screen

@@ -77,13 +77,7 @@ export const ScrollNavigation: React.FC = () => {
 					paddingLeft: 10,
 				}}
 				ItemSeparatorComponent={() => {
-					return (
-						<View
-							style={{
-								height: "100%",
-								width: 10,
-							}} />
-					);
+					return <View style={{ height: "100%", width: 10, }} />;
 				}}
 				data={ScrollNavigationData}
 				horizontal={true}
