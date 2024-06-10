@@ -90,8 +90,10 @@ export const ScrollNavigation: React.FC = () => {
 							<View style={{
 								paddingHorizontal: 12,
 								paddingVertical: 8,
+								backgroundColor: colors.primaryDarker,
+								borderRadius: 4,
 							}}>
-								<Text style={{fontSize: 12}}>{item.title}</Text>
+								<Text style={{fontSize: 12, color: colors.white, fontFamily: 'Kanit_600SemiBold'}}>{item.title}</Text>
 							</View>
 						)
 					} else {
@@ -108,7 +110,7 @@ export const ScrollNavigation: React.FC = () => {
 										shadowRadius: 2,
 										elevation: 5
 									}}>
-									<Text style={{fontSize: 12}}>{item.title}</Text>
+									<Text style={{fontSize: 12, fontFamily: 'Kanit_400Regular'}}>{item.title}</Text>
 								</View>
 							</Pressable>
 						)
