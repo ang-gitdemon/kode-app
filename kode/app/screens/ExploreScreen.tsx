@@ -1,16 +1,29 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import ScrollNavigation from '../navigation/ScrollNavigation';
+import colors from '../ui/colors';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Icon from '../components/Icon';
 
 const ExploreScreen = ({navigation}) => {
 	return(
 		<>
-			<View style={{flex: 1}}>
+			<SafeAreaProvider>
 				<View style={{flex: 1}}>
-					<Text>Explore Screen</Text>
+					<View style={{
+						paddingHorizontal: 20,
+						paddingVertical: 12,
+						// flexDirection: 'row',
+						// alignItems: 'center',
+						// columnGap: 10,
+					}}>
+						<Icon name={'explore'} active={false} color={colors.black} />
+						<Text>Explore Screen</Text>
+					</View>
 				</View>
+				
 				<ScrollNavigation />
-			</View>
+			</SafeAreaProvider>
 		</>
 	);
 };

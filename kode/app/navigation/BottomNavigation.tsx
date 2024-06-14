@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import ConnectScreen from '../screens/ConnectScreen';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { LogoutButton } from '../components/LogoutButton';
 import Icon from '../components/Icon';
 import colors from '../ui/colors';
@@ -18,24 +18,31 @@ import MealPlannerScreen from '../screens/MealPlanner';
 import NutritionAnalyzerScreen from '../screens/NutritionAnalyzer';
 import YourNutritionScreen from '../screens/YourNutrition';
 import RecipeScreen from '../screens/Recipe';
+import SettingsScreen from '../screens/Settings';
 
 const TodayStack = createNativeStackNavigator();
 const ExploreStack = createNativeStackNavigator();
 const RecipeBookStack = createNativeStackNavigator();
 const ConnectStack = createNativeStackNavigator();
 
-const TodayScreenStack = () => {
+const TodayScreenStack = ({ navigation, route }) => {
     return(
         <TodayStack.Navigator>
             <TodayStack.Screen name="Today" component={HomeScreen} options={{
-                title: 'Home' }} />
+                headerTitle: () => <Text style={{ fontFamily: 'Kanit_500Medium', fontSize: 14 }}>Home</Text>,
+                headerLeft: () => (
+                    <Pressable onPress={ () => ( navigation.navigate('SettingsScreen') ) }>
+                        <Icon name={'user'} active={true} size={20} color={colors.primaryDarker}  />
+                    </Pressable>
+                )}} />
             <TodayStack.Screen name="Recipe" component={RecipeScreen}  options={{
                 headerTitle: () => <Text>Recipe</Text>,
                 headerShown: false,
                 headerBackTitleVisible: true,
                 headerBackTitleStyle: {fontFamily: 'WorkSans_400Regular'} }} />
             <TodayStack.Screen name="NutritionAnalyzerScreen" component={NutritionAnalyzerScreen} options={{
-                title: 'Nutrition Analyzer' }} />
+                headerTitle: () => <Text style={{ fontFamily: 'Kanit_500Medium', fontSize: 14 }}>Nutrition Analyzer</Text>,
+            }} />
             <TodayStack.Screen name="MealPlannerScreen" component={MealPlannerScreen} options={{
                 title: 'Meal Planner' }} />
             <TodayStack.Screen name="ReverseLookupScreen" component={ReverseLookupScreen} options={{
@@ -47,6 +54,8 @@ const TodayScreenStack = () => {
                 title: 'Expense Tracker' }} />
             <TodayStack.Screen name="PartyOrganizerScreen" component={PartyOrganizerScreen} options={{
                 title: 'Party Organizer' }} />
+            <TodayStack.Screen name="SettingsScreen" component={SettingsScreen} options={{
+                title: 'Settings' }} />
         </TodayStack.Navigator>
     )
 }
@@ -80,7 +89,6 @@ const ExploreScreenStack = () => {
 
 export const BottomNavigation: React.FC = () => {
 
-    const Stack = createNativeStackNavigator();
     const BottomTabs = createBottomTabNavigator();
 
     return(
@@ -94,12 +102,13 @@ export const BottomNavigation: React.FC = () => {
                         return (
                             <Text>{screenTitle}</Text>
                         );   
-                    },  
+                    },
+                    
                     headerRight: () => (
                         <LogoutButton />
                     ),
                     tabBarActiveTintColor: colors.white,
-                    tabBarInactiveTintColor: colors.whiteOffset,
+                    tabBarInactiveTintColor: colors.white,
                     tabBarLabelStyle: {
                         fontFamily: 'Kanit_600SemiBold',
                         fontSize: 12
@@ -123,7 +132,7 @@ export const BottomNavigation: React.FC = () => {
                     name="Explore"
                     component={ ExploreScreenStack }
                     options={{
-                        tabBarIcon: ({ color, focused }) => (<Icon name={'explore'} active={focused} />),
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'explore'} active={focused} size={23} />),
                         title: 'Explore',
                         headerShown: false
                     }}
@@ -140,7 +149,7 @@ export const BottomNavigation: React.FC = () => {
                     name="Connect"
                     component={ ConnectScreen }
                     options={{
-                        tabBarIcon: ({ color, focused }) => (<Icon name={'connect'} active={focused} />),
+                        tabBarIcon: ({ color, focused }) => (<Icon name={'connect'} active={focused} size={23} />),
                         title: 'Connect',
                     }}
                 />

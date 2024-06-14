@@ -14,6 +14,7 @@ type ItemType = {
 	id: string;
 	title: string;
 	target: string;
+	icon: string;
 };
 
 const ScrollNavigationData:ItemType[] = [
@@ -22,40 +23,47 @@ const ScrollNavigationData:ItemType[] = [
 	// 	title: 'more',
 	// 	target: '',
     // },
+	{
+		id: '003',
+		title: 'Meal Planner',
+		target: 'MealPlannerScreen',
+		icon: 'planner'
+	},
     {
 		id: '002',
 		title: 'Nutriton Analyzer',
 		target: 'NutritionAnalyzerScreen',
-    },
-    {
-        id: '003',
-        title: 'Meal Planner',
-		target: 'MealPlannerScreen'
+		icon: 'wellness'
     },
     {
         id: '004',
         title: 'Reverse Lookup',
-        target: 'ReverseLookupScreen'
+        target: 'ReverseLookupScreen',
+		icon: 'reverse'
     },
     {
         id: '005',
         title: 'Grocery Shopper',
-		target: 'GroceriesScreen'
+		target: 'GroceriesScreen',
+		icon: 'cart'
     },
     {
         id: '006',
         title: 'Nutrition Tracker',
-		target: 'YourNutritionScreen'
+		target: 'YourNutrition',
+		icon: 'tracker'
     },
     {
         id: '007',
         title: 'Expense Tracker',
-		target: 'ExpenseTrackerScreen'
+		target: 'ExpenseTrackerScreen',
+		icon: 'expense'
     },
     {
         id: '008',
         title: 'Party Organizer',
-		target: 'PartyOrganizerScreen'
+		target: 'PartyOrganizerScreen',
+		icon: 'party'
 	}
 ];
 
@@ -67,9 +75,9 @@ export const ScrollNavigation: React.FC = () => {
     return(
         <View style={{
 			borderTopWidth: 1,
-			borderColor: colors.primaryDarker,
+			borderColor: colors.gray200,
 			paddingVertical: 0,
-			backgroundColor: colors.grayLightest,
+			backgroundColor: colors.gray100,
 		}}>
 			<FlatList
 				style={{
@@ -92,7 +100,11 @@ export const ScrollNavigation: React.FC = () => {
 								paddingVertical: 8,
 								backgroundColor: colors.primaryDarker,
 								borderRadius: 4,
+								flexDirection: 'row',
+								alignItems: 'center'
 							}}>
+								<Icon name={item.icon} active={isNavActive} size={16} color={colors.white}  />
+								<View style={{height: '100%', marginLeft: 5}} />
 								<Text style={{fontSize: 12, color: colors.white, fontFamily: 'Kanit_600SemiBold'}}>{item.title}</Text>
 							</View>
 						)
@@ -108,8 +120,13 @@ export const ScrollNavigation: React.FC = () => {
 										shadowOffset: { width: 0, height: 2 },
 										shadowOpacity: 0.2,
 										shadowRadius: 2,
-										elevation: 5
+										elevation: 5,
+										flexDirection: 'row',
+										alignItems: 'center'
+
 									}}>
+									<Icon name={item.icon} active={isNavActive} size={16} color={colors.primaryDarker} />
+									<View style={{height: '100%', marginLeft: 5}} />
 									<Text style={{fontSize: 12, fontFamily: 'Kanit_400Regular'}}>{item.title}</Text>
 								</View>
 							</Pressable>
