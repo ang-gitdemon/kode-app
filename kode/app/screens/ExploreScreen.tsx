@@ -8,7 +8,7 @@ import Icon from '../components/Icon';
 const ExploreScreen = ({navigation}) => {
 	return(
 		<>
-			<SafeAreaProvider>
+			<SafeAreaProvider style={{flex: 1}}>
 				<View style={{flex: 1}}>
 					<View style={{
 						paddingHorizontal: 20,

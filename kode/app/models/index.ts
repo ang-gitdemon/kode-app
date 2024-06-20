@@ -1,3 +1,7 @@
-import {Task} from './Task';
+import { Task } from './Task';
+import { Users } from './Users';
 
-export const schemas = [Task];
+export const schemas = [
+    Users,
+    Task
+];

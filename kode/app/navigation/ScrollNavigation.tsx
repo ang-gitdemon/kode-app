@@ -8,7 +8,7 @@ import { FlatList, Pressable, Text, View } from 'react-native';
 import { LogoutButton } from '../components/LogoutButton';
 import Icon from '../components/Icon';
 import colors from '../ui/colors';
-
+import { useUser } from '@realm/react';
 
 type ItemType = {
 	id: string;
@@ -17,60 +17,63 @@ type ItemType = {
 	icon: string;
 };
 
-const ScrollNavigationData:ItemType[] = [
-    // {
-	// 	id: '001',
-	// 	title: 'more',
-	// 	target: '',
-    // },
-	{
-		id: '003',
-		title: 'Meal Planner',
-		target: 'MealPlannerScreen',
-		icon: 'planner'
-	},
-    {
-		id: '002',
-		title: 'Nutriton Analyzer',
-		target: 'NutritionAnalyzerScreen',
-		icon: 'wellness'
-    },
-    {
-        id: '004',
-        title: 'Reverse Lookup',
-        target: 'ReverseLookupScreen',
-		icon: 'reverse'
-    },
-    {
-        id: '005',
-        title: 'Grocery Shopper',
-		target: 'GroceriesScreen',
-		icon: 'cart'
-    },
-    {
-        id: '006',
-        title: 'Nutrition Tracker',
-		target: 'YourNutrition',
-		icon: 'tracker'
-    },
-    {
-        id: '007',
-        title: 'Expense Tracker',
-		target: 'ExpenseTrackerScreen',
-		icon: 'expense'
-    },
-    {
-        id: '008',
-        title: 'Party Organizer',
-		target: 'PartyOrganizerScreen',
-		icon: 'party'
-	}
-];
-
 export const ScrollNavigation: React.FC = () => {
 
+	const user = useUser();
     const navigation = useNavigation();
-	const route = useRoute();    
+	const route = useRoute();
+
+	console.log(user.profile);
+	
+	const ScrollNavigationData:ItemType[] = [
+		// {
+		// 	id: '001',
+		// 	title: 'more',
+		// 	target: '',
+		// },
+		{
+			id: '01',
+			title: 'Nutriton Analyzer',
+			target: 'NutritionAnalyzerScreen',
+			icon: 'wellness'
+		},
+		{
+			id: '02',
+			title: 'Meal Planner',
+			target: 'MealPlannerScreen',
+			icon: 'planner'
+		},
+		{
+			id: '004',
+			title: 'Reverse Lookup',
+			target: 'ReverseLookupScreen',
+			icon: 'reverse'
+		},
+		{
+			id: '005',
+			title: 'Grocery Shopper',
+			target: 'GroceriesScreen',
+			icon: 'cart'
+		},
+		{
+			id: '006',
+			title: 'Nutrition Tracker',
+			target: 'YourNutrition',
+			icon: 'tracker'
+		},
+		{
+			id: '007',
+			title: 'Expense Tracker',
+			target: 'ExpenseTrackerScreen',
+			icon: 'expense'
+		},
+		{
+			id: '008',
+			title: 'Party Organizer',
+			target: 'PartyOrganizerScreen',
+			icon: 'party'
+		}
+	];
 
     return(
         <View style={{

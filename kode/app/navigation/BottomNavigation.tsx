@@ -20,70 +20,51 @@ import YourNutritionScreen from '../screens/YourNutrition';
 import RecipeScreen from '../screens/Recipe';
 import SettingsScreen from '../screens/Settings';
 
-const TodayStack = createNativeStackNavigator();
-const ExploreStack = createNativeStackNavigator();
-const RecipeBookStack = createNativeStackNavigator();
-const ConnectStack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const TodayScreenStack = ({ navigation, route }) => {
     return(
-        <TodayStack.Navigator>
-            <TodayStack.Screen name="Today" component={HomeScreen} options={{
-                headerTitle: () => <Text style={{ fontFamily: 'Kanit_500Medium', fontSize: 14 }}>Home</Text>,
-                headerLeft: () => (
-                    <Pressable onPress={ () => ( navigation.navigate('SettingsScreen') ) }>
-                        <Icon name={'user'} active={true} size={20} color={colors.primaryDarker}  />
-                    </Pressable>
-                )}} />
-            <TodayStack.Screen name="Recipe" component={RecipeScreen}  options={{
-                headerTitle: () => <Text>Recipe</Text>,
-                headerShown: false,
-                headerBackTitleVisible: true,
-                headerBackTitleStyle: {fontFamily: 'WorkSans_400Regular'} }} />
-            <TodayStack.Screen name="NutritionAnalyzerScreen" component={NutritionAnalyzerScreen} options={{
-                headerTitle: () => <Text style={{ fontFamily: 'Kanit_500Medium', fontSize: 14 }}>Nutrition Analyzer</Text>,
-            }} />
-            <TodayStack.Screen name="MealPlannerScreen" component={MealPlannerScreen} options={{
-                title: 'Meal Planner' }} />
-            <TodayStack.Screen name="ReverseLookupScreen" component={ReverseLookupScreen} options={{
-                title: 'Reverse Lookup' }} />
-            <TodayStack.Screen name="GroceriesScreen" component={GroceriesScreen} />
-            <TodayStack.Screen name="YourNutrition" component={YourNutritionScreen} options={{
-                title: 'Your Nutrition' }} />
-            <TodayStack.Screen name="ExpenseTrackerScreen" component={ExpenseTrackerScreen} options={{
-                title: 'Expense Tracker' }} />
-            <TodayStack.Screen name="PartyOrganizerScreen" component={PartyOrganizerScreen} options={{
-                title: 'Party Organizer' }} />
-            <TodayStack.Screen name="SettingsScreen" component={SettingsScreen} options={{
-                title: 'Settings' }} />
-        </TodayStack.Navigator>
-    )
-}
-
-const ExploreScreenStack = () => {
-    return(
-        <TodayStack.Navigator>
-            <TodayStack.Screen name="ExploreScreen" component={ExploreScreen} options={{
-                title: 'Explore' }} />
-            <TodayStack.Screen name="Recipe" component={RecipeScreen}  options={{
-                headerTitle: () => <Text>Recipe</Text>,
-                headerShown: false,
-                headerBackTitleVisible: true,
-                headerBackTitleStyle: {fontFamily: 'WorkSans_400Regular'} }} />
-            <TodayStack.Screen name="NutritionAnalyzerScreen" component={NutritionAnalyzerScreen} options={{
-                title: 'Nutrition Analyzer' }} />
-            <TodayStack.Screen name="MealPlannerScreen" component={MealPlannerScreen} options={{
-                title: 'Meal Planner' }} />
-            <TodayStack.Screen name="ReverseLookupScreen" component={ReverseLookupScreen} options={{
-                title: 'Reverse Lookup' }} />
-            <TodayStack.Screen name="GroceriesScreen" component={GroceriesScreen} />
-            <TodayStack.Screen name="YourNutrition" component={YourNutritionScreen} options={{
-                title: 'Your Nutrition' }} />
-            <TodayStack.Screen name="ExpenseTrackerScreen" component={ExpenseTrackerScreen} options={{
-                title: 'Expense Tracker' }} />
-            <TodayStack.Screen name="PartyOrganizerScreen" component={PartyOrganizerScreen} options={{
-                title: 'Party Organizer' }} />
-        </TodayStack.Navigator>
+        <Stack.Navigator>
+            <Stack.Screen name="Today" component={HomeScreen} options={{
+                    headerTitle: () => <Text style={{ fontFamily: 'Kanit_500Medium', fontSize: 14 }}>Home</Text>,
+                    headerLeft: () => (
+                        <Pressable onPress={ () => ( navigation.navigate('SettingsScreen') ) }>
+                            <Icon name={'user'} active={true} size={20} color={colors.primaryDarker}  />
+                        </Pressable>
+                    ),
+                }} />
+            <Stack.Group
+                screenOptions={({ navigation, route }) => ({
+                    animation: 'none',
+                    headerLeft: () => (
+                        <Pressable onPress={ () => ( navigation.navigate('SettingsScreen') ) }>
+                            <Icon name={'user'} active={true} size={20} color={colors.primaryDarker}  />
+                        </Pressable>
+                    ),
+                })}>
+                <Stack.Screen name="Recipe" component={RecipeScreen}  options={{
+                    headerTitle: () => <Text>Recipe</Text>,
+                    headerShown: false,
+                    headerBackTitleVisible: true,
+                    headerBackTitleStyle: {fontFamily: 'WorkSans_400Regular'} }} />
+                <Stack.Screen name="NutritionAnalyzerScreen" component={NutritionAnalyzerScreen} options={{
+                    headerTitle: () => <Text style={{ fontFamily: 'Kanit_500Medium', fontSize: 14 }}>Nutrition Analyzer</Text>,
+                }} />
+                <Stack.Screen name="MealPlannerScreen" component={MealPlannerScreen} options={{
+                    title: 'Meal Planner' }} />
+                <Stack.Screen name="ReverseLookupScreen" component={ReverseLookupScreen} options={{
+                    title: 'Reverse Lookup' }} />
+                <Stack.Screen name="GroceriesScreen" component={GroceriesScreen} />
+                <Stack.Screen name="YourNutrition" component={YourNutritionScreen} options={{
+                    title: 'Your Nutrition' }} />
+                <Stack.Screen name="ExpenseTrackerScreen" component={ExpenseTrackerScreen} options={{
+                    title: 'Expense Tracker' }} />
+                <Stack.Screen name="PartyOrganizerScreen" component={PartyOrganizerScreen} options={{
+                    title: 'Party Organizer' }} />
+                <Stack.Screen name="SettingsScreen" component={SettingsScreen} options={{
+                    title: 'Settings' }} />
+            </Stack.Group>
+        </Stack.Navigator>
     )
 }
 
@@ -130,11 +111,10 @@ export const BottomNavigation: React.FC = () => {
                 />
                 <BottomTabs.Screen
                     name="Explore"
-                    component={ ExploreScreenStack }
+                    component={ ExploreScreen }
                     options={{
                         tabBarIcon: ({ color, focused }) => (<Icon name={'explore'} active={focused} size={23} />),
                         title: 'Explore',
-                        headerShown: false
                     }}
                 />
                 <BottomTabs.Screen
