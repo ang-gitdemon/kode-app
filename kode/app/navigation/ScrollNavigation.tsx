@@ -15,6 +15,7 @@ type ItemType = {
 	title: string;
 	target: string;
 	icon: string;
+	size: number;
 };
 
 export const ScrollNavigation: React.FC = () => {
@@ -35,43 +36,50 @@ export const ScrollNavigation: React.FC = () => {
 			id: '01',
 			title: 'Nutriton Analyzer',
 			target: 'NutritionAnalyzerScreen',
-			icon: 'wellness'
+			icon: 'wellness',
+			size: 18
 		},
 		{
 			id: '02',
 			title: 'Meal Planner',
 			target: 'MealPlannerScreen',
-			icon: 'planner'
+			icon: 'planner',
+			size: 18
 		},
 		{
 			id: '004',
 			title: 'Reverse Lookup',
 			target: 'ReverseLookupScreen',
-			icon: 'reverse'
+			icon: 'reverse',
+			size: 18
 		},
 		{
 			id: '005',
 			title: 'Grocery Shopper',
 			target: 'GroceriesScreen',
-			icon: 'cart'
+			icon: 'cart',
+			size: 18
 		},
 		{
 			id: '006',
 			title: 'Nutrition Tracker',
 			target: 'YourNutrition',
-			icon: 'tracker'
+			icon: 'tracker',
+			size: 16
 		},
 		{
 			id: '007',
 			title: 'Expense Tracker',
 			target: 'ExpenseTrackerScreen',
-			icon: 'expense'
+			icon: 'expense',
+			size: 18
 		},
 		{
 			id: '008',
 			title: 'Party Organizer',
 			target: 'PartyOrganizerScreen',
-			icon: 'party'
+			icon: 'party',
+			size: 18
 		}
 	];
 
@@ -106,8 +114,8 @@ export const ScrollNavigation: React.FC = () => {
 								flexDirection: 'row',
 								alignItems: 'center'
 							}}>
-								<Icon name={item.icon} active={isNavActive} size={16} color={colors.white}  />
-								<View style={{height: '100%', marginLeft: 5}} />
+								<Icon name={item.icon} active={isNavActive} size={item.size} color={colors.white}  />
+								<View style={{height: '100%', marginLeft: 7}} />
 								<Text style={{fontSize: 12, color: colors.white, fontFamily: 'Kanit_600SemiBold'}}>{item.title}</Text>
 							</View>
 						)
@@ -128,8 +136,8 @@ export const ScrollNavigation: React.FC = () => {
 										alignItems: 'center'
 
 									}}>
-									<Icon name={item.icon} active={isNavActive} size={16} color={colors.primaryDarker} />
-									<View style={{height: '100%', marginLeft: 5}} />
+									<Icon name={item.icon} active={isNavActive} size={item.size} color={colors.primaryDarker} />
+									<View style={{height: '100%', marginLeft: 7}} />
 									<Text style={{fontSize: 12, fontFamily: 'Kanit_400Regular'}}>{item.title}</Text>
 								</View>
 							</Pressable>
