@@ -2,7 +2,7 @@
   "expo": {
     "name": "kode",
     "slug": "kode-app",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "assetBundlePatterns": [
       "**/*"
     ],
