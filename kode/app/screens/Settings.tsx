@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from '../components/Icon';
 import colors from '../ui/colors';
 import {useUser} from '@realm/react';
+import { RearrangeScrollNavigation } from '../components/RearrangeScrollNavigation';
 
 const SettingsScreen = ({navigation}) => {
 	
@@ -46,7 +47,9 @@ const SettingsScreen = ({navigation}) => {
 					flexDirection: 'row',
 					alignItems: 'center'}}>
 					<View>
-						<Pressable>
+						<Pressable onPress={ () => {
+                            navigation.navigate('List')
+                        }}>
 							<Text>Scroll Navigation</Text>
 						</Pressable>
 					</View>

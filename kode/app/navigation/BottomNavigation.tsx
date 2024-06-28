@@ -18,10 +18,37 @@ import NutritionAnalyzerScreen from '../screens/NutritionAnalyzer';
 import YourNutritionScreen from '../screens/YourNutrition';
 import RecipeScreen from '../screens/Recipe';
 import SettingsScreen from '../screens/Settings';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ListScreen from '../screens/ListScreen';
+
 
 export const BottomNavigation: React.FC = () => {
 
     const BottomTabs = createBottomTabNavigator();
+    const Stack = createNativeStackNavigator();
+
+    const SettingsStack = ({ navigation, route }) => {
+        return(
+            <Stack.Navigator>
+                <Stack.Screen
+                    name="Settings"
+                    component={SettingsScreen}
+                    options={{
+                        title: 'Settings',
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen
+                    name="List"
+                    component={ListScreen}
+                    options={{
+                        title: 'Scroll Navigation'
+                    }}
+                />
+            </Stack.Navigator>
+        )
+    }
+
 
     return(
         <NavigationContainer>
@@ -35,7 +62,11 @@ export const BottomNavigation: React.FC = () => {
                             <Text>{screenTitle}</Text>
                         );   
                     },
-                    
+                    headerLeft: () => (
+                        <Pressable onPress={ () => ( navigation.navigate('SettingsScreen') ) }>
+                            <Icon name={'user'} active={true} size={20} color={colors.primaryDarker}  />
+                        </Pressable>
+                    ),
                     headerRight: () => (
                         <LogoutButton />
                     ),
@@ -59,7 +90,6 @@ export const BottomNavigation: React.FC = () => {
                         options={{
                             tabBarIcon: ({ color, focused }) => (<Icon name={'home'} active={focused} />),
                             title: 'Today',
-                            headerShown: false
                         }}
                     />
                     <BottomTabs.Screen
@@ -154,7 +184,7 @@ export const BottomNavigation: React.FC = () => {
                     />
                     <BottomTabs.Screen
                         name="SettingsScreen"
-                        component={SettingsScreen}
+                        component={SettingsStack}
                         options={{
                             title: 'Settings',
                             tabBarButton: (props) => null

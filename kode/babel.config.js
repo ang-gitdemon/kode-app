@@ -23,7 +23,8 @@ module.exports = function (api) {
 		plugins: [
 			"@realm/babel-plugin",
 			["@babel/plugin-proposal-decorators", { legacy: true }],
-			"nativewind/babel"
+			"nativewind/babel",
+			"react-native-reanimated/plugin",
 		],
 	};
 };
