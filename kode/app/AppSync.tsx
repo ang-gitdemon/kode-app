@@ -3,6 +3,7 @@ import {useApp, useAuth, useQuery, useRealm, useUser} from '@realm/react';
 import {Button, Pressable, StyleSheet, Text, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import {Task} from './models/Task';
 import {TaskManager} from './components/TaskManager';
@@ -35,7 +36,7 @@ export const AppSync: React.FC = () => {
 	}, [realm, tasks]);
 
 	return (
-		<>
+		<GestureHandlerRootView style={{ flex: 1 }}>
 			<BottomNavigation />
 			{/* <Pressable onPress={logOut}>
 				<Text>{`Logout ${user?.profile.email}`}</Text>
@@ -47,7 +48,7 @@ export const AppSync: React.FC = () => {
 				showDone={showDone}
 			/> */}
 			{/* <OfflineModeButton /> */}
-		</>
+		</GestureHandlerRootView>
 	);
 };
 
